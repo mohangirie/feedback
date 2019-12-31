@@ -1,0 +1,49 @@
+<html>
+<head>
+
+    <title>Feed Back Form</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<style>
+    b{
+        color: darkred;
+        font-family: cursive;
+        font-size: 30px;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="offset-md-2 col-md-8">
+            <h2>Your Feedbacks Are......</h2>
+            {% if feedbacks %}
+                {% for i in feedbacks %}
+
+                    <b>Name:{{ i.name }}<br></b>
+                    Rating:{{ i.rating }}<br>
+                    Location:{{ i.loc }}<br>
+                    Date:{{ i.date }}<br>
+                    Feedback:{{ i.feedback }}<br><br>
+
+                {% endfor %}
+            {% else %}
+                <h1>Feedbacks are not available</h1>
+            {% endif %}
+            <form method="POST">
+                <h2>Give your feedbacks</h2>
+                {% csrf_token %}
+                {{ fform }}<br><br>
+                <input type="submit" value="Submit" >
+                <input type="reset" value="Clear">
+            </form>
+        </div>
+    </div>
+</div>
+</html>
