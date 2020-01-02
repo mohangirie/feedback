@@ -82,6 +82,8 @@ DATABASES = {
         'NAME': 'feedback',
         'USER': 'root',
         'PASSWORD': 'root',
+        'HOST':'mysql.server'
+        'PORT':''
     }
 }
 
